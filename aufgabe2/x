@@ -1,0 +1,68 @@
+Punkte pro Testfall: 7; 0; Maximum: 25 
+
+Testfall: {-1.1-} h (-42) == -42; Testfall OK 
+Testfall: {-1.2-} [h n|n<-[(-42)..(-1)]] == [(-42)..(-1)]; Testfall OK 
+Testfall: {-1.3-} [h i|i<-[1..5]] == [2,14,560,190960,745889760]; Testfall OK 
+Testfall: {-1.4-} [i|i<-[6..40],(h i)`mod`3/=0] ; Testfall FALSCH 
+Erwartet: {-1.4-} [i|i<-[6..40],(h i)`mod`3/=0] == [] 
+Ausgabe:  {-1.4-} [i|i<-[6..40],(h i)`mod`3/=0] == [7,10,11,14,15,17,18,21,22]   
+
+Testfaelle OK: 3; Testfaelle FALSCH: 1
+Punkte : 21
+
+Punkte pro Testfall: 5; 0; Maximum: 25 
+
+Testfall: {-2.1-} klassifiziere 1 ; Testfall FALSCH 
+Erwartet: {-2.1-} klassifiziere 1 == "nicht quer" 
+Ausgabe:  {-2.1-} klassifiziere 1 == "Nicht quer"   
+Testfall: {-2.2-} [(head.klassifiziere)i|i<-[ 1..10]] ; Testfall FALSCH 
+Erwartet: {-2.2-} [(head.klassifiziere)i|i<-[ 1..10]] == "nuueununnn" 
+Ausgabe:  {-2.2-} [(head.klassifiziere)i|i<-[ 1..10]] == "NUUEUNUNNN"   
+Testfall: {-2.3-} [(head.klassifiziere)i|i<-[11..20]] ; Testfall FALSCH 
+Erwartet: {-2.3-} [(head.klassifiziere)i|i<-[11..20]] == "ununnnunun" 
+Ausgabe:  {-2.3-} [(head.klassifiziere)i|i<-[11..20]] == "UNUNNNUNUN"   
+Testfall: {-2.4-}  [(head.klassifiziere)i|i<-[101..150]] ; Testfall FALSCH 
+Erwartet: {-2.4-}  [(head.klassifiziere)i|i<-[101..150]] == "ununnnununnnunnnnnnnennnnnunnnunnnnnununnnnnnnnnun" 
+Ausgabe:  {-2.4-}  [(head.klassifiziere)i|i<-[101..150]] == "UNUNNNUNUNNNUNNNNNNNENNNNNUNNNUNNNNNUNUNNNNNNNNNUN"   
+Testfall: {-2.5-}  [(head.klassifiziere)i|i<-[1001..1020]] ; Testfall FALSCH 
+Erwartet: {-2.5-}  [(head.klassifiziere)i|i<-[1001..1020]] == "nnnnnnnnunnnunnnnnun" 
+Ausgabe:  {-2.5-}  [(head.klassifiziere)i|i<-[1001..1020]] == "NNNNNNNNUNNNUNNNNNUN"   
+
+Testfaelle OK: 0; Testfaelle FALSCH: 5
+Punkte : 0
+
+Punkte pro Testfall: 7; 0; Maximum: 25 
+
+Testfall: {-3.1-} [n|n<-[1..62],kbb(4*n)(3*n)/=n] ; Testfall FALSCH 
+Erwartet: {-3.1-} [n|n<-[1..62],kbb(4*n)(3*n)/=n] == [] 
+Ausgabe:  {-3.1-} [n|n<-[1..62],kbb(4*n)(3*n)/=n] == [1.0,2.0,3.0,4.0,5.0,6.0,7.0,8.0,9.0,10.0,11.0,12.0,13.0,14.0,15.0,16.0,17.0,18.0,19.0,20.0,21.0,22.0,23.0,24.0,25.0,26.0,27.0,28.0,29.0,30.0,31.0,32.0,33.0,34.0,35.0,36.0,37.0,38.0,39.0,40.0,41.0,42.0,43.0,44.0,45.0,46.0,47.0,48.0,49.0,50.0,51.0,52.0,53.0,54.0,55.0,56.0,57.0,58.0,59.0,60.0,61.0,62.0]   
+Testfall: {-3.2-} [kbb' lb|lb<-[(24,7),(24,10),(21,20),(30,16),(48,14),(48,20),(45,28),(42,40),(60,11),(60,32),(70,24),(63,60),(77,36),(96,28),(90,48),(96,40),(90,56),(84,80)]] ; Testfall FALSCH 
+Erwartet: {-3.2-} [kbb' lb|lb<-[(24,7),(24,10),(21,20),(30,16),(48,14),(48,20),(45,28),(42,40),(60,11),(60,32),(70,24),(63,60),(77,36),(96,28),(90,48),(96,40),(90,56),(84,80)]] == [3,4,6,6,6,8,10,12,5,12,10,18,14,12,18,16,20,24] 
+Ausgabe:  {-3.2-} [kbb' lb|lb<-[(24,7),(24,10),(21,20),(30,16),(48,14),(48,20),(45,28),(42,40),(60,11),(60,32),(70,24),(63,60),(77,36),(96,28),(90,48),(96,40),(90,56),(84,80)]] == ERROR - Undefined variable "kbb'"   
+Testfall: {-3.3-} let n = 20; in take 20 [kbb i j|i<-[n,(n-1)..1],j<-[i,(i-1)..1]] ; Testfall FALSCH 
+Erwartet: {-3.3-} let n = 20; in take 20 [kbb i j|i<-[n,(n-1)..1],j<-[i,(i-1)..1]] == [41,40,39,38,37,5,35,34,33,32,31,30,29,28,27,26,25,24,23,22] 
+Ausgabe:  {-3.3-} let n = 20; in take 20 [kbb i j|i<-[n,(n-1)..1],j<-[i,(i-1)..1]] == [34.142135623731,33.2931142241337,32.4536240470737,31.6244047484067,30.8062484748657,30.0,29.2065556157337,28.4268604418766,27.6619037896906,26.9127122105133,26.1803398874989,25.4658560997307,24.770329614269,24.0948100502085,23.4403065089106,22.8077640640442,22.1980390271856,21.6118742080783,21.0498756211209,20.5124921972504]   
+Testfall: {-3.4-}let n = 20; in take 30 [kbb i j|i<-[n,(n-1)..1],j<-[i,(i-1)..1],kbb i j/=(i+j+1)] ; Testfall FALSCH 
+Erwartet: {-3.4-}let n = 20; in take 30 [kbb i j|i<-[n,(n-1)..1],j<-[i,(i-1)..1],kbb i j/=(i+j+1)] == [5,4,3,3,2,2,1] 
+Ausgabe:  {-3.4-}let n = 20; in take 30 [kbb i j|i<-[n,(n-1)..1],j<-[i,(i-1)..1],kbb i j/=(i+j+1)] == [34.142135623731,33.2931142241337,32.4536240470737,31.6244047484067,30.8062484748657,30.0,29.2065556157337,28.4268604418766,27.6619037896906,26.9127122105133,26.1803398874989,25.4658560997307,24.770329614269,24.0948100502085,23.4403065089106,22.8077640640442,22.1980390271856,21.6118742080783,21.0498756211209,20.5124921972504,32.4350288425444,31.5862523283024,30.747548783982,29.9197423483742,29.1037184369102,28.3004237212059,27.5108644332213,26.7361025271221,25.9772492000501,25.2354552767919]   
+
+Testfaelle OK: 0; Testfaelle FALSCH: 4
+Punkte : 0
+
+Punkte pro Testfall: 9; 0; Maximum: 25 
+
+Testfall: {-4.1-} ist_ok 1 1 1 1 ; Testfall FALSCH 
+Erwartet: {-4.1-} ist_ok 1 1 1 1 == False 
+Ausgabe:  {-4.1-} ist_ok 1 1 1 1 == ERROR - Undefined variable "ist_ok"   
+Testfall: {-4.2-}let v=[1..12];in take 5[(l,b,s,w)|l<-v,b<-v,s<-v,w<-v,s/=w,ist_ok l b s w] ; Testfall FALSCH 
+Erwartet: {-4.2-}let v=[1..12];in take 5[(l,b,s,w)|l<-v,b<-v,s<-v,w<-v,s/=w,ist_ok l b s w] == [] 
+Ausgabe:  {-4.2-}let v=[1..12];in take 5[(l,b,s,w)|l<-v,b<-v,s<-v,w<-v,s/=w,ist_ok l b s w] == ERROR - Undefined variable "ist_ok"   
+Testfall: {-4.3-}let v=[1..9];in take 5[(l,b,s,ist_ok l b s s)|l<-v,b<-v,s<-[kbb l b],s<(l+b+1), not(ist_ok l b s s)] ; Testfall FALSCH 
+Erwartet: {-4.3-}let v=[1..9];in take 5[(l,b,s,ist_ok l b s s)|l<-v,b<-v,s<-[kbb l b],s<(l+b+1), not(ist_ok l b s s)] == [] 
+Ausgabe:  {-4.3-}let v=[1..9];in take 5[(l,b,s,ist_ok l b s s)|l<-v,b<-v,s<-[kbb l b],s<(l+b+1), not(ist_ok l b s s)] == ERROR - Undefined variable "ist_ok"   
+
+Testfaelle OK: 0; Testfaelle FALSCH: 3
+Punkte : 0
+
+Punkte gesamt: 21
+
